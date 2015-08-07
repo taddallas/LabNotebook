@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <link rel="stylesheet" type="text/css" href="/public/css/font-awesome/css/font-awesome.css">
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Example post &middot; Lab Notebook
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/LabNotebookpublic/css/poole.css">
+  <link rel="stylesheet" href="/LabNotebookpublic/css/syntax.css">
+  <link rel="stylesheet" href="/LabNotebookpublic/css/hyde.css">
+ 
+  <!-- Icons -->
+	<link rel="shortcut icon" href="/LabNotebook_site/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-boom">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/LabNotebook">
+          Lab Notebook
+        </a>
+      </h1>
+      <p class="lead">An attempt</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/LabNotebook">Home</a>
+
+      
+
+      
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    </nav>
+
+    <p>&copy; 2015. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      
+
+
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<div class="post">
+	<div class="row">
+		<p><h1>Example post</h1></p>	
+		<div class="span3 column">
+			<h4><strong>January 11, 2015 <small>  </small></strong><img src="" height="100" style="float:right" />
+			<br/><small>Tags:  <a href="/tags/How-to" title="View posts tagged with &quot;How-to&quot;"><u>How-to</u></a>    </small></h4>
+		</div>		
+	</div>
+ <p>This document will serve as both a template for blog post structure, and as a &quot;how-to&quot; for Drake lab members wanting to contribute blog posts. </p>
+
+<h2>The problem I had to solve</h2>
+
+<div class="message">
+  Insert problem here. Markdown syntax won't work in here, since it's treating it like html. Here, the problem I'm solving is figuring out how to contribute a post to the blog. 
+</div>
+
+<h2>Why this is a problem (not trivial)</h2>
+
+<p>This is a non-trivial problem, since all members of the Drake lab should be able to contribute blog posts if they choose. In our case, we&#39;re using Jekyll, and hosting the project on Github. <code>DrakeLab</code> is an organization, and you can ask permission to join the organization once you sign up for GitHub. For a tutorial on how to use GitHub generally, look <a href="http://github.com/taddallas/githubTutorial">here</a>. Clone the <a href="http://github.com/DrakeLab/DrakeLab.github.io">repository</a>, and get ready to contribute.</p>
+
+<h2>Why this is generic</h2>
+
+<p>This is a problem encountered by anyone wanting to post on our blog, but also is applicable to other folks wanting to use Jekyll and R markdown to generate blog posts. </p>
+
+<h2>What I did</h2>
+
+<p>The <a href="http://github.com/DrakeLab/DrakeLab.github.io">repository</a> has a bunch of folders. The only ones that you&#39;ll really need to worry about are <code>_knitr</code> and <code>tags</code>. You will write your posts as <code>.Rmd</code> files, and name them with the date (e.g., `2015-2-14-Valentines-Day.Rmd&#39; would be a romantic post). The part after the date is just to provide a brief bit about what the post is about.</p>
+
+<p>Posts have a yaml heading that needs to be used. </p>
+
+<div>
+  <pre><code class='r'>---
+layout: post 
+title: Example post
+author: tad
+tags:
+- How-to
+---</code></pre>
+</div>
+
+<p>Above provides the details. <code>layout</code> will always be &quot;post&quot;. Provide your post title. If you are posting for the first time, chat with me about getting yourself listed as an author, or you can edit the <code>_data/authors.yaml</code> file with your information. Tags work in the following way. They&#39;ll easy to use, but for every new tag you use, you&#39;ll have to create a folder in the <code>tags</code> folder with the tag name, and a file called <code>index.html</code> containing a simple 2 line yaml stating what your tag name is and specifying the <code>layout</code> as &quot;tagpage&quot;. I know it&#39;s silly, but whatever. It works for now. </p>
+
+<p>Proceed to write your awesome blog post, complete with reproducible and dynamically inserted plots and such. Below, I make a quick plot of an interaction matrix using the <code>metacom</code> package. </p>
+
+<div>
+  <pre><code class='r'>library(metacom)
+    Imagine(matrix(rbinom(400,1,0.4), ncol=20,nrow=20))</code></pre>
+</div>
+
+<p><img src="/../figs/2015-1-11-example-post/unnamed-chunk-2-1.png" alt="center"> </p>
+
+<p>Feel free to mix a bit of <code>html</code> in with your markdown if you&#39;re feeling frisky. Below, I use the <code>img</code> html tag to include a picture of a Turkish van cat. </p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg" height="300"> Cat. </img></p>
+
+<p>Here&#39;s the annoying part. Once you finish your post, you&#39;ll have to convert it to an <code>md</code> file and put it in the <code>_posts</code> directory. I&#39;ve semi-automated this process using some code from <a href="http://www.jonzelner.net/jekyll/knitr/r/2014/07/02/autogen-knitr/">this helpful post</a>. All you&#39;ll need to do is source <code>_knitr/render_post.R</code> in an R instance. That will convert all <code>Rmd</code> posts to <code>md</code> and move them to the <code>_posts</code> folder and any figures created into the <code>figs</code> folder. Once that&#39;s done, you can push your changes. If you find it annoying or too time-consuming to rebuild all posts from <code>Rmd</code> to <code>md</code>, you can just open the <code>render_post.R</code> file and run the <code>KnitPost</code> function on a single post instead of all posts. Easy.</p>
+
+<p>If you&#39;d like to view your post locally, you&#39;ll need to set up Jekyll on your machine. Pretty easy to set up, and if you have Ruby gems installed. </p>
+
+<div>
+  <pre><code class='r'>gem install jekyll
+cd USERNAME.github.com 
+jekyll serve</code></pre>
+</div>
+
+<p>After this, use your browser to check out <a href="http://localhost:4000/">http://localhost:4000/</a> where the blog will be locally live. </p>
+
+<p>Okay. So you&#39;ve written a blog post, sandboxed it on your local machine and are ready for it to go live. Simply <code>add</code>, <code>commit</code>, and <code>push</code> your changes to the <a href="http://github.com/DrakeLab/DrakeLab.github.io">repository</a>, and your set. </p>
+
+<div>
+  <pre><code class='r'>cd USERNAME.github.com
+git add .
+git commit -m &quot;SOME HELPFUL MESSAGE&quot;
+git push origin master</code></pre>
+</div>
+
+<p>Enter in your <code>username</code> and <code>password</code> and you have just created a beautiful blog post full of reproducible code. </p>
+
+<h2>How you can do it, too</h2>
+
+<p>I just told you how to do it, silly. For fun, I&#39;ve also added in some <code>Font-Awesome</code> capabilities, so you have access to a <a href="http://fortawesome.github.io/Font-Awesome/icons/">beautiful library of icons</a> which are really easy to input. </p>
+
+<p>For instance, let&#39;s say I want to make a tree icon. Simple.</p>
+
+<div>
+  <pre><code class='r'>&lt;i class=&quot;fa fa-tree&quot;&gt; &lt;/i&gt;</code></pre>
+</div>
+
+<p><i class="fa fa-tree"> </i></p>
+
+<p>Let&#39;s say I want the tree to be like 2,3,4,or 5x larger.</p>
+
+<div>
+  <pre><code class='r'>&lt;i class=&quot;fa fa-tree fa-2x&quot;&gt; &lt;/i&gt;
+&lt;i class=&quot;fa fa-tree fa-3x&quot;&gt; &lt;/i&gt;
+&lt;i class=&quot;fa fa-tree fa-4x&quot;&gt; &lt;/i&gt;
+&lt;i class=&quot;fa fa-tree fa-5x&quot;&gt; &lt;/i&gt;</code></pre>
+</div>
+
+<p><i class="fa fa-tree fa-2x"> </i>
+<i class="fa fa-tree fa-3x"> </i>
+<i class="fa fa-tree fa-4x"> </i>
+<i class="fa fa-tree fa-5x"> </i></p>
+
+<p>What if I want the tree to be green?</p>
+
+<div>
+  <pre><code class='r'>&lt;i class=&quot;fa fa-tree&quot; style=&quot;color:green&quot;&gt; &lt;/i&gt;</code></pre>
+</div>
+
+<p><i class="fa fa-tree" style="color:green"> </i></p>
+
+<p>Thanks for reading. I hope you decide to contribute to this blog, and that other folks find this blog useful. </p>
+
+<p><i class="fa fa-heart" style="color:pink"> </i></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>
