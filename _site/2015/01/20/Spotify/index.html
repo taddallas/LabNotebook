@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <link rel="stylesheet" type="text/css" href="/public/css/font-awesome/css/font-awesome.css">
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Spotify + R = <3 &middot; Drake Lab Blog
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+ 
+  <!-- Icons -->
+	<link rel="shortcut icon" href="/_site/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-boom">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Drake Lab Blog
+        </a>
+      </h1>
+      <p class="lead">We are a group of population and disease ecologists in the Odum School of Ecology at University of Georgia.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/labpage/">Lab website</a>
+          
+        
+      
+        
+          
+        
+      
+    </nav>
+
+    <p>&copy; 2015. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      
+
+
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<div class="post">
+	<div class="row">
+		<p><h1>Spotify + R = <3</h1></p>	
+		<div class="span3 column">
+			<h4><strong>January 20, 2015 <small>  </small></strong><img src="https://avatars.githubusercontent.com/u/5226753?v=3" height="100" style="float:right" />
+			<br/><small>Tags:  <a href="/tags/R" title="View posts tagged with &quot;R&quot;"><u>R</u></a>     <a href="/tags/Spotify" title="View posts tagged with &quot;Spotify&quot;"><u>Spotify</u></a>    </small></h4>
+		</div>		
+	</div>
+ <p>If I&#39;m in the lab, I most likely have my headphones on. There is <a href="https://github.com/taddallas">documented evidence of this</a>. I remember when Spotify Apps first became a think, and I thought it was really cool that Spotify had an API, so you could query related artists and such pretty easily. This post is about some fun Spotify querying through R!</p>
+
+<h2>The problem</h2>
+
+<p>I initially got excited about the idea of the &quot;Nickelback number&quot;, which would be a Spotify App that calculate the degrees of separation between an input artist and the Canadian rock band <a href="http://en.wikipedia.org/wiki/Nickelback">Nickelback</a>. However, that turned out to require a bit too much work, and it felt a little mean towards the Canadian <strong>pop</strong> rockers. Instead, the point of this blog post is to show how to access Spotify&#39;s API (Application Program Interface) for some fun!</p>
+
+<h2>Why is this problem non-trivial?</h2>
+
+<p>It is pretty trivial, to be honest. However, learning how to query API&#39;s may be generally useful to ecologists. If you need examples, check out some of the great packages at <a href="http://ropensci.org/">rOpenSci</a>! </p>
+
+<h2>What I did</h2>
+
+<p>All code is available as part of the <code>rSpotify</code> package available on my <a href="http://github.com/taddallas">Github</a>. The package is bare bones, but has some cool plotting functions using the <code>d3Network</code> package. </p>
+
+<p>Information on artists can be obtained by using the following base URL.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">https<span class="o">://</span>api.spotify.com<span class="o">/</span>v1<span class="o">/</span>artists<span class="o">/</span>ARTISTID</code></pre></div>
+
+<p>ARTISTID is the Spotify code for an artist. You can access that code using the <code>RCurl</code> and <code>jsonlite</code> packages. Below, I access the API using the <code>getURL</code> function, and fromJSON parses JSON objects into R. </p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">artistName<span class="o">=</span><span class="s">&quot;The Mountain Goats&quot;</span>
+
+  info<span class="o">=</span>fromJSON<span class="p">(</span>getURL<span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;https://api.spotify.com/v1/search?q=&quot;</span><span class="p">,</span> <span class="kp">gsub</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;+&#39;</span><span class="p">,</span> artistName<span class="p">),</span><span class="s">&quot;&amp;type=artist&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)))</span><span class="o">$</span>artists<span class="o">$</span>items</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: could not find function &quot;fromJSON&quot;</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">name<span class="o">=</span>info<span class="o">$</span>name<span class="p">[</span><span class="m">1</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;info&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">id<span class="o">=</span><span class="kp">unlist</span><span class="p">(</span><span class="kp">strsplit</span><span class="p">(</span>info<span class="o">$</span>uri<span class="p">[</span><span class="m">1</span><span class="p">],</span><span class="s">&#39;:&#39;</span><span class="p">))[</span><span class="m">3</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;info&#39; not found</code></pre></div>
+
+<p>Now we have the artists name and their Spotify URI, a unique artist identifier. From this, we can get information about how many followers they have, their popularity score, band image urls, and related artists.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">site<span class="o">=</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;https://api.spotify.com/v1/artists/&quot;</span><span class="p">,</span>id<span class="p">,</span><span class="s">&quot;/related-artists&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;id&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">bandsInfo<span class="o">=</span><span class="kp">as.data.frame</span><span class="p">(</span>fromJSON<span class="p">(</span>getURL<span class="p">(</span>site<span class="p">,</span> httpheader <span class="o">=</span> <span class="kt">c</span><span class="p">(</span>Accept <span class="o">=</span> <span class="s">&quot;application/json&quot;</span><span class="p">))))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: could not find function &quot;fromJSON&quot;</code></pre></div>
+
+<p>This <code>bandsInfo</code> object contains information on 20 artists related to the original query (&quot;The Mountain Goats&quot;). Using this tiny dataset, we can explore relationships like the one between the number of artist followers, and the popularity score (which is calculated based on the number of plays per some unit time). </p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">plot<span class="p">(</span><span class="kp">unlist</span><span class="p">(</span>bandsInfo<span class="p">[,</span><span class="m">2</span><span class="p">])[</span><span class="m">21</span><span class="o">:</span><span class="m">40</span><span class="p">],</span> bandsInfo<span class="p">[,</span><span class="m">8</span><span class="p">],</span> ylab<span class="o">=</span><span class="s">&#39;Popularity&#39;</span><span class="p">,</span> xlab<span class="o">=</span><span class="s">&#39;Number of followers&#39;</span><span class="p">,</span> las<span class="o">=</span><span class="m">1</span><span class="p">,</span> pch<span class="o">=</span><span class="m">16</span><span class="p">,</span> tck<span class="o">=</span><span class="m">0.01</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;bandsInfo&#39; not found</code></pre></div>
+
+<p>Looks cool. Now let&#39;s look at how Nickelback compares. </p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">awfulBand<span class="o">=</span><span class="s">&quot;Nickelback&quot;</span>
+
+  awfulBandInfo<span class="o">=</span>fromJSON<span class="p">(</span>getURL<span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;https://api.spotify.com/v1/search?q=&quot;</span><span class="p">,</span> <span class="kp">gsub</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;+&#39;</span><span class="p">,</span> awfulBand<span class="p">),</span><span class="s">&quot;&amp;type=artist&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)))</span><span class="o">$</span>artists</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: could not find function &quot;fromJSON&quot;</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">awfulPop<span class="o">=</span>awfulBandInfo<span class="o">$</span>items<span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">8</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;awfulBandInfo&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">awfulFollowers<span class="o">=</span><span class="kp">unlist</span><span class="p">(</span>awfulBandInfo<span class="o">$</span>items<span class="p">[,</span><span class="m">2</span><span class="p">])[</span><span class="m">6</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;awfulBandInfo&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">plot<span class="p">(</span><span class="kp">unlist</span><span class="p">(</span>bandsInfo<span class="p">[,</span><span class="m">2</span><span class="p">])[</span><span class="m">21</span><span class="o">:</span><span class="m">40</span><span class="p">],</span> bandsInfo<span class="p">[,</span><span class="m">8</span><span class="p">],</span> ylab<span class="o">=</span><span class="s">&#39;Popularity&#39;</span><span class="p">,</span> xlab<span class="o">=</span><span class="s">&#39;Number of followers&#39;</span><span class="p">,</span> las<span class="o">=</span><span class="m">1</span><span class="p">,</span> pch<span class="o">=</span><span class="m">16</span><span class="p">,</span> tck<span class="o">=</span><span class="m">0.01</span><span class="p">,</span> xlim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">15000</span><span class="p">,</span><span class="m">1100000</span><span class="p">),</span> ylim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">45</span><span class="p">,</span> <span class="m">90</span><span class="p">))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;bandsInfo&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">points<span class="p">(</span>awfulFollowers<span class="p">,</span> awfulPop<span class="p">,</span> pch<span class="o">=</span><span class="m">15</span><span class="p">,</span> col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span> cex<span class="o">=</span><span class="m">2</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;awfulFollowers&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">text<span class="p">(</span><span class="m">1004000</span><span class="p">,</span> <span class="m">80</span><span class="p">,</span> <span class="s">&quot;Nickelback!&quot;</span><span class="p">,</span> col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span> cex<span class="o">=</span><span class="m">1.5</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: plot.new has not been called yet</code></pre></div>
+
+<p>Looks like Nickelback dominates The Mountain Goats, and all of their related artists, including Athens favorites Of Montreal! Sad day, but it&#39;s understandable. I hope this has been fun for you. To conclude the post, and put things right with the universe, I&#39;d like to show Katy Perry as a dark horse, destroying Nickelback in popularity and followers. </p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">KP<span class="o">=</span>fromJSON<span class="p">(</span>getURL<span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;https://api.spotify.com/v1/search?q=&quot;</span><span class="p">,</span> <span class="kp">gsub</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&quot;Katy Perry&quot;</span><span class="p">),</span><span class="s">&quot;&amp;type=artist&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)))</span><span class="o">$</span>artists</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: could not find function &quot;fromJSON&quot;</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">kpPop<span class="o">=</span>KP<span class="o">$</span>items<span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">8</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;KP&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">kpFollowers<span class="o">=</span><span class="kp">unlist</span><span class="p">(</span>KP<span class="o">$</span>items<span class="p">[,</span><span class="m">2</span><span class="p">])[</span><span class="m">21</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;KP&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">plot<span class="p">(</span><span class="kp">unlist</span><span class="p">(</span>bandsInfo<span class="p">[,</span><span class="m">2</span><span class="p">])[</span><span class="m">21</span><span class="o">:</span><span class="m">40</span><span class="p">],</span> bandsInfo<span class="p">[,</span><span class="m">8</span><span class="p">],</span> ylab<span class="o">=</span><span class="s">&#39;Popularity&#39;</span><span class="p">,</span> xlab<span class="o">=</span><span class="s">&#39;Number of followers&#39;</span><span class="p">,</span> las<span class="o">=</span><span class="m">1</span><span class="p">,</span> pch<span class="o">=</span><span class="m">16</span><span class="p">,</span> tck<span class="o">=</span><span class="m">0.01</span><span class="p">,</span> xlim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">15000</span><span class="p">,</span><span class="m">3500000</span><span class="p">),</span> ylim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">45</span><span class="p">,</span> <span class="m">90</span><span class="p">))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;bandsInfo&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">points<span class="p">(</span>awfulFollowers<span class="p">,</span> awfulPop<span class="p">,</span> pch<span class="o">=</span><span class="m">16</span><span class="p">,</span> col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span> cex<span class="o">=</span><span class="m">2</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;awfulFollowers&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">text<span class="p">(</span><span class="m">1004000</span><span class="p">,</span> <span class="m">80</span><span class="p">,</span> <span class="s">&quot;Nickelback!&quot;</span><span class="p">,</span> col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span> cex<span class="o">=</span><span class="m">1.5</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: plot.new has not been called yet</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">points<span class="p">(</span>kpFollowers<span class="p">,</span> kpPop<span class="p">,</span> pch<span class="o">=</span><span class="m">16</span><span class="p">,</span> col<span class="o">=</span><span class="s">&#39;dodgerblue2&#39;</span><span class="p">,</span> cex<span class="o">=</span><span class="m">2</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: object &#39;kpFollowers&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">text<span class="p">(</span><span class="m">3000000</span><span class="p">,</span> <span class="m">85</span><span class="p">,</span> <span class="s">&quot;Katy Perry&quot;</span><span class="p">,</span> col<span class="o">=</span><span class="s">&#39;dodgerblue2&#39;</span><span class="p">,</span> cex<span class="o">=</span><span class="m">1.5</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error: plot.new has not been called yet</code></pre></div>
+
+<p>This has been a bit of a roundabout way to show how to access Spotify&#39;s API through R, but I hope it has got you thinking about accessing data from the web through API&#39;s. </p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/02/24/double-well/">
+            Animating the double well potential
+            <small>24 Feb 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/02/10/parasiteR/">
+            Accessing online helminth data through R
+            <small>10 Feb 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/01/12/Setting-Up/">
+            How we set up our blog
+            <small>12 Jan 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+---
+layout: default
+---
+{% assign author = site.data.authors[page.author] %}
+{% assign mugshot = site.data.authors[page.mugshot] %}
+
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<div class="post">
+	<div class="row">
+		<p><h1>{{ page.title }}</h1></p>	
+		<div class="span3 column">
+			<h4><strong>{{ page.date | date: "%B %e, %Y" }} <small> {{ page.category }} </small></strong><img src="{{ author.mugshot }}" height="100" style="float:right" />
+			<br/><small>Tags: {% for tag in page.tags %} <a href="/tags/{{ tag }}" title="View posts tagged with &quot;{{ tag }}&quot;"><u>{{ tag }}</u></a>  {% if forloop.last != true %} {% endif %} {% endfor %} </small></h4>
+		</div>		
+	</div>
+ {{ content }}
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {% for post in site.related_posts limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ post.url }}">
+            {{ post.title }}
+            <small>{{ post.date | date_to_string }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
