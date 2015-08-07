@@ -10,7 +10,7 @@ relative_permalinks: true
 title:             Lab Notebook
 tagline:          'Tad Dallas'
 description:      'An attempt'
-baseurl:          /gh-pages
+baseurl:          /LabNotebook
 
 
 paginate:         5
