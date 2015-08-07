@@ -7,10 +7,10 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:             Lab Notebook
+title:            Lab Notebook
 tagline:          'Tad Dallas'
-description:      'An attempt'
-baseurl:          /gh-pages
+description:      '   '
+baseurl:          /
 
 
 paginate:         5
