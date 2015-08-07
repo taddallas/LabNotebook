@@ -9,7 +9,7 @@ relative_permalinks: true
 # Setup
 title:             Lab Notebook
 tagline:          'Tad Dallas'
-description:      'An attempt'
+description:      'Incorporating natural science and the science of man'
 baseurl:          /LabNotebook
 
 paginate:         5
