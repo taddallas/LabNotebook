@@ -190,13 +190,13 @@ a.sidebar-nav-item:focus {
 }
 .theme-base-boom .content a,
 .theme-base-boom .related-posts li a:hover {
-  color: #273419;
+  color: #696969;
 	font-family: 'Oswald', sans-serif;
 }
 
 .theme-base-boom .sidebar h1 { 
-	font-family: 'Oswald', sans-serif;
-	color: #273419;
+	font-family: 'Ubuntu', sans-serif;
+	color: #000;
 }
 
 

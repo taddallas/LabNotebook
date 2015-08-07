@@ -190,7 +190,7 @@ a.sidebar-nav-item:focus {
 }
 .theme-base-boom .content a,
 .theme-base-boom .related-posts li a:hover {
-  color: #0da4d3;
+  color: #273419;
 	font-family: 'Oswald', sans-serif;
 }
 
@@ -198,7 +198,6 @@ a.sidebar-nav-item:focus {
 	font-family: 'Oswald', sans-serif;
 	color: #273419;
 }
-
 
 
 
