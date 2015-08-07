@@ -83,7 +83,7 @@ html {
 
 /* About section */
 .sidebar-about h1 {
-  color:  #739a4b;
+  color:  #273419;
   margin-top: 0;
   font-size: 2rem;
 }
@@ -196,8 +196,11 @@ a.sidebar-nav-item:focus {
 
 .theme-base-boom .sidebar h1 { 
 	font-family: 'Oswald', sans-serif;
-	color: #739a4b;
+	color: #273419;
 }
+
+
+
 
 
 

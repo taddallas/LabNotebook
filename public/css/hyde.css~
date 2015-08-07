@@ -199,6 +199,8 @@ a.sidebar-nav-item:focus {
 	color: #739a4b;
 }
 
+
+
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 /* Red */
 .theme-base-08 .sidebar {
