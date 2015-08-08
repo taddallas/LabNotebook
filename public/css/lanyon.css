@@ -40,13 +40,16 @@ body {
   overflow-x: hidden;
 }
 
+
 html {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
+
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: "Ubuntu", Helvetica, Arial, sans-serif;
+  font-weight: 300;
   color: #313131;
   letter-spacing: -.025rem;
 }
@@ -110,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
 .masthead-title small {
   font-size: 75%;
   font-weight: 400;
-  color: #c0c0c0;
+  color: #2793ff;
   letter-spacing: 0;
 }
 
@@ -151,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
-  background-color: #202020;
+  background-color: #BFDFFF;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
 }
@@ -237,7 +240,7 @@ a.sidebar-nav-item:focus {
 #sidebar-checkbox:focus ~ .sidebar-toggle,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
   color: #fff;
-  background-color: #555;
+  background-color: #2793ff;
 }
 
 .sidebar-toggle:active:before,
