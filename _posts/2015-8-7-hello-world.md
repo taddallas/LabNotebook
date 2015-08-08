@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Example post
-author: tad
+author: Tad
 ---
 
 
