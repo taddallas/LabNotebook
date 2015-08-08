@@ -153,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
   visibility: hidden;
   overflow-y: auto;
   font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: .875rem; /* 15px */
+  font-size: 1.25rem;
   color: rgba(255,255,255,.6);
   background-color: #202020;
   -webkit-transition: all .3s ease-in-out;
@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 30em) {
   .sidebar {
-    font-size: .75rem; /* 14px */
+    font-size: 1.25rem; 
   }
 }
 
@@ -372,7 +372,7 @@ a.sidebar-nav-item:focus {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu Condensed', sans-serif;
   color: #ccc;
   text-align: center;
 }
