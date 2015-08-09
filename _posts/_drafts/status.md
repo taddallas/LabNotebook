@@ -6,35 +6,9 @@ author: tad
 
 # Current Status
 
-## Vertica 
++ Making an itemized list
 
-+ _Bd_ manuscript writing, corrected maps/plots
-
-+ Package/annotate/document transformation and imputation code for Arash
-
-+ Blog post (general narrative about problem I addressed, and how Vertica helped)
-
-
-## RCN 
-
-+ Global helminth stuff (software note, protocols, etc.)
-	+ Node properties, DivDist, ...
-
-+    
-
-## Dissertation
-
-+ Competition manuscript edits (due end of August)
-
-+ 
-
----
-
-
-# <i class="fa fa-space-shuttle" style="color:green"> Prioritize </i>
-
-+ ESA presentation
-+ Vertica work
++ Doing some science
 
 
 
@@ -46,22 +20,12 @@ author: tad
 
 # Logistics
 
-+ Finalize ESA slides; practice talk?
-
-+ Contact potential post-doc advisors 
-
-+ Cement project ideas for postdocs and for Mozilla fellowship
-
-
-
-
----
-
-# Ideas / random thoughts
++ Sample something?
 
 
 
 
 
-<i class="fa fa-heart" style="color:pink"> </i>
+
+
 
