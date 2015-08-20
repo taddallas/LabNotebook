@@ -45,11 +45,9 @@ Pages live in the home directory of your notebook, and are written as simple mar
 
 
 
-## Getting the lab notebook from Github
+## Deploying your open notebook via Github
 
-Okay. So you either downloaded, forked, or cloned the sampleNotebook branch (see [here](https://www.atlassian.com/git/tutorials/) for a nice git tutorial), and now you'd like to deploy your science to Github, where it will actually be built and go from simple markdown to beautiful `html`. I'll go through the steps of at least forking, if not actually commiting and pushing changes below. 
-
-If you're on a Windows machine, `git` ships with a [terminal emulator](https://git-for-windows.github.io/). If you're using a Mac, I have nothing for you, and I'm sorry. If you're on Linux, you already have used the terminal hopefully (`ctrl + alt + t` !!). 
+Okay. So you either downloaded, forked, or cloned the sampleNotebook branch (see [here](https://www.atlassian.com/git/tutorials/) for a nice git tutorial), and now you'd like to deploy your science to Github, where it will actually be built and go from simple markdown to beautiful `html`. I'm going to walk through the steps to deploy your website, but see the aforementioned tutorial for a better explanation. All the commands below are entered into the terminal. If you're on a Windows machine, `git` ships with a [terminal emulator](https://git-for-windows.github.io/). If you're using a Mac, I have nothing for you, and I'm sorry. If you're on Linux, you already have used the terminal hopefully (`ctrl + alt + t` !!). 
 
 
 ### Cloning the sampleNotebook branch
@@ -60,18 +58,12 @@ To clone just the branch containing the skeleton open lab notebook. You can also
 git clone -b sampleNotebook https://github.com/taddallas/LabNotebook.git
 ```
 
-### Commiting and pushing changes
-
-_To be filled in_
 
 
 
 
 
 
-
-
-### This is not perfect, and you could make it better
 
 There are a lot of other bells and whistles that could be added, but my goal was just to offer a nice and simple open lab notebook template that is accessible to a broad range of folks. That being said, feel free to contribute functionality or to make some project aspects clearer by forking or filing an issue on the [Github page](https://github.com/taddallas/LabNotebook/tree/sampleNotebook). 
 
