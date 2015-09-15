@@ -10,6 +10,6 @@ Hello! I'm Tad, a graduate student in the [Odum School of Ecology](http://www.ec
 
 This blog was created on the [Jekyll](http://jekyllrb.com) platform, templating from [Hyde](http://hyde.getpoole.com),and hosted on [GitHub](https://github.com/taddallas).
 
-Have questions or suggestions? Feel free to contact us, or report an issue on Github.
+Have questions or suggestions? Feel free to contact me, or report an issue on Github.
 
 Thanks for reading!
