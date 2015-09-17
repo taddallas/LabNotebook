@@ -1,0 +1,59 @@
+---
+layout: post
+title: Status for September 17
+author: Tad
+---
+
+
+## What did I work on today?
+
+* `parasiteR` software note finalized (ish)
+
+Either submit or get friendly review from Alexa
+
+
+* `srsMetacom` work 
+
+Addressing modularity calculation issues. I believe everything is coded correctly. 
+
+* Pitching `globalHelminth` as lab project
+
+Hooks: pretty complete data, relatively unused, lots of potential questions of interest to spatial folks (e.g., spatial distro of helminth richness), human health folks (e.g., data exist on human infections, so questions of parasite spillover, and trying to relate host community to human infection is potentially possible), and network folks (e.g., network statistics across a spatial or host community space gradient).
+
+> Need to format these data for the extinction project with Colin and team
+
+
+
+## What should I be working tomorrow?
+
+* `resistanceCosts` edits (seem straightforward, but be sure to address them all)
+
+* `srsMetacom` writing (after modularity stuff gets sorted)
+
+* `globalHelminth`: get it on the high memory across at least 10 or so nodes
+
+* `VerticaBd`: check in with Drew to see what he thinks about next steps, or if it's largely in my hands
+
+
+
+
+
+
+---
+
+### Keep in mind
+
+* Start thinking about defense date (February?)
+
+
+
+---
+
+### Listening to:
+
+<iframe src="https://embed.spotify.com/?uri=spotify:track:4GpmgOiFG2WxiiXHthNkuz" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+
+
+<i class="fa fa-code" style="color:pink"> </i>
+
