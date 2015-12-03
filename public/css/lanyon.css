@@ -155,7 +155,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 1rem;
   color: rgba(255,255,255,.6);
-  background-color: #202020;
+  background-color: #DAE6F0;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
 }
@@ -168,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Sidebar content */
 .sidebar a {
   font-weight: normal;
-  color: #fff;
+  color: #000;
 }
 .sidebar-item {
   padding: 1rem;
@@ -221,7 +221,7 @@ a.sidebar-nav-item:focus {
   display: block;
   padding: .25rem .75rem;
   color: #CCE7B2;
-  background-color: #000;
+  background-color: #fff;
   border-radius: .25rem;
   cursor: pointer;
 }
