@@ -332,7 +332,7 @@ a.sidebar-nav-item:focus {
   display: block;
   margin-top: -.5rem;
   margin-bottom: 1rem;
-  color: #9a9a9a;
+  color: #901051;
 }
 
 /* Related posts */
@@ -350,7 +350,7 @@ a.sidebar-nav-item:focus {
 }
 .related-posts li small {
   font-size: 75%;
-  color: #999;
+  color: #901051;
 }
 .related-posts li a:hover {
   color: #268bd2;
