@@ -62,7 +62,7 @@ h2{
 
 h3{
   font-family: "Ubuntu", Helvetica, Arial, sans-serif;
-  color: #00AABC;
+  color: #C94277;
 }
 
 h4{
@@ -129,7 +129,7 @@ h4{
 .masthead-title small {
   font-size: 75%;
   font-weight: 400;
-  color: #00AABC;
+  color: #C94277;
   letter-spacing: 0;
 }
 
@@ -170,7 +170,7 @@ h4{
   text-align: center;
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 1.25rem;
-  color: #7DCFB6;
+  color: #C94277;
   background-color: #D8F0E9;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
@@ -237,7 +237,7 @@ a.sidebar-nav-item:focus {
   display: block;
   padding: .15rem .5rem;
   color: #CCE7B2;
-  background-color: #F79256;
+  background-color: #FBD1A2;
   border-radius: .15rem;
   cursor: pointer;
 }
@@ -247,20 +247,20 @@ a.sidebar-nav-item:focus {
   width: 1rem;
   height: .75rem;
   content: "";
-  background-color: #FF8D1E;
+  background-color: #FBD1A2;
 }
 
 .sidebar-toggle:active,
 #sidebar-checkbox:focus ~ .sidebar-toggle,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
   color: #fff;
-  background-color: #FF8D1E;
+  background-color: #FBD1A2;
 }
 
 .sidebar-toggle:active:before,
 #sidebar-checkbox:focus ~ .sidebar-toggle:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
-  background-color: #8D1EFF;
+  background-color: #CCE7B2;
 }
 
 @media (min-width: 30.1em) {
