@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h2{
   font-family: "Ubuntu", Helvetica, Arial, sans-serif;
-  color: #066C91;
+  color: #00AABC;
 }
 
 h3{
@@ -171,7 +171,7 @@ h4{
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 1.25rem;
   color: #C94277;
-  background-color: #D8F0E9;
+  background-color: #e3fcff;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
 }
@@ -236,8 +236,8 @@ a.sidebar-nav-item:focus {
   left: 1rem;
   display: block;
   padding: .15rem .5rem;
-  color: #CCE7B2;
-  background-color: #FBD1A2;
+  color: #00AABC;
+  background-color: #066C91;
   border-radius: .15rem;
   cursor: pointer;
 }
@@ -260,7 +260,7 @@ a.sidebar-nav-item:focus {
 .sidebar-toggle:active:before,
 #sidebar-checkbox:focus ~ .sidebar-toggle:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
-  background-color: #CCE7B2;
+  background-color: #00AABC;
 }
 
 @media (min-width: 30.1em) {
