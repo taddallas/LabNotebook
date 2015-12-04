@@ -169,8 +169,8 @@ h4{
   overflow-y: auto;
   text-align: center;
   font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 1.25rem;
-  color: #C94277;
+  font-size: 3rem;
+  color: #00AABC;
   background-color: #e3fcff;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
@@ -244,7 +244,7 @@ a.sidebar-nav-item:focus {
 
 .sidebar-toggle:before {
   display: inline-block;
-  width: 0.5rem;
+  width: 1.5rem;
   height: .75rem;
   content: "";
   background-color: #00AABC;
