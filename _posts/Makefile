@@ -8,4 +8,4 @@ github:
 	sh -c "git push origin gh-pages"
 
 clean:
-	echo "You're not my boss" 
+	echo "You're not my boss"
