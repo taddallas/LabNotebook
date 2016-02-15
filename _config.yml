@@ -3,7 +3,7 @@ title:             Lab Notebook
 tagline:          'Tad Dallas'
 description:      ''
 baseurl:          /LabNotebook
-paginate:         5
+paginate:         30
 
 github:
   repo:           https://github.com/taddallas/LabNotebook
