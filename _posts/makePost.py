@@ -11,7 +11,7 @@ newPost = open(fileName+".md", "w")
 newPost.write("---\nlayout: post \ntitle: Status for " + str(month) + " " + str(day) + " \nauthor: Tad\n---\n \n## What have I worked on?\n \n* \n  \n## What should I be working on now? \n\n* \n \n \n \n--- \n \n### Listening to: \n <iframe src='https://embed.spotify.com/?uri=spotify%3Atrack%3A7ofZgS5xDW0XodfjaXWvZG' width='300' height='380' frameborder='0' allowtransparency='true'></iframe> \n <i class='fa fa-code' style='color:pink'></i> ")
 newPost.close()
 
-import webbrowser
-webbrowser.open(fileName+".md", "w")
+import subprocess
+proc = subprocess.Popen(['gedit', fileName+".md"])
 
 sys.exit(0) # quit Python
