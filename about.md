@@ -6,7 +6,9 @@ title: About
 
 ## My open lab notebook
 
-Hello! I'm Tad, a postdoc in Alan Hastings lab at University of California @ Davis. For information about my science, check out my [website](http://taddallas.github.io). This lab notebook is mean to be a storehouse for project notes as I push projects forward. The goal is two-fold; _1)_ to hold myself accountable for day-to-day tasks and project status and _2)_ to communicate to others what I'm working on, hopefully in enough detail to be able to follow, and with appropriate links to Github repos containing project files.
+Hello! I'm Tad. I'm an ecologist and this is my lab notebook. It is largely a way for me to track my time and the status of ongoing projects. It holds me accountable, and provides a way of self-correction if I am spending too much time on certain tasks. 
+
+For information about my science, check out my [website](http://taddallas.github.io). This lab notebook is mean to be a storehouse for project notes as I push projects forward. 
 
 This blog was created on the [Jekyll](http://jekyllrb.com) platform, templating from [Hyde](http://hyde.getpoole.com),and hosted on [GitHub](https://github.com/taddallas).
 
