@@ -12,6 +12,6 @@ newPost.write("---\nlayout: post \ntitle: Status for " + str(month) + " " + str(
 newPost.close()
 
 import subprocess
-proc = subprocess.Popen(['gedit', fileName+".md"])
+proc = subprocess.Popen(['code', fileName+".md"])
 
 sys.exit(0) # quit Python
